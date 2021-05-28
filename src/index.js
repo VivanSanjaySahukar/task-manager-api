@@ -1,15 +1,6 @@
-const express = require('express')
-require('./db/mongoose')  // we need mongoose to run to connect to the server, we dont need any value from js to use.
-const userRouter = require('./routers/user')
-const taskRouter = require('./routers/task')
-
-const app = express()
+const app = require('./app')
+// index can be used to start a server(port) but app.js is used purely for testing without using a port.
 const port = process.env.PORT
-
-app.use(express.json())
-app.use(userRouter)
-app.use(taskRouter)
-
 
 app.listen(port, () => {
     console.log('server is up on port ' + port)
